@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 import datetime as dt
 from django.db import models
-# from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Editor(models.Model):
@@ -53,5 +53,5 @@ class Article(models.Model):
         news = cls.objects.filter(title__icontains = search_term)
         return news
 
-# class Pictures(models.Model):
-#     image = CloudinaryField('image')
+class Pictures(models.Model):
+    image = CloudinaryField('image')

@@ -16,13 +16,13 @@ import django_heroku
 import dj_database_url
 from decouple import config,Csv
 # image upload
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 MODE = config("MODE",default = "dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG',default = False, cast = bool)
+DEBUG = config('DEBUG',default = True, cast = bool)
 # development
 if config('MODE') == "dev":
     DATABASES = {
@@ -175,8 +175,8 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast = Csv())
 
-# cloudinary.config( 
-#   cloud_name = "bomboclat", 
-#   api_key = "932744348394112", 
-#   api_secret = "NAu5gTJ9NhN_bAnpwwEPVg6XjXc" 
-# )
+cloudinary.config( 
+  cloud_name = "rayo", 
+  api_key = "932744348394112", 
+  api_secret = "NAu5gTJ9NhN_bAnpwwEPVg6XjXc" 
+)
