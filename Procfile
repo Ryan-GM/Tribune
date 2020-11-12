@@ -1,0 +1,1 @@
+web: gunicorn tribune8.wsgi --log-file -
