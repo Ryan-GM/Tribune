@@ -22,7 +22,7 @@ import cloudinary.api
 
 MODE = config("MODE",default = "dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG',default = False, cast = bool)
+DEBUG = config('DEBUG',default = True, cast = bool)
 # development
 if config('MODE') == "dev":
     DATABASES = {
@@ -55,7 +55,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'r=%_t8$ykreqmuym2a*3^5u#+=s$c665$1%c((a#4_(*e9pm!#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
