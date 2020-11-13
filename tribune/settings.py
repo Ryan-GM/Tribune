@@ -22,7 +22,8 @@ import cloudinary.api
 
 MODE = config("MODE",default = "dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG',default = True, cast = bool)
+# DEBUG = config('DEBUG',default = True, cast = bool)
+DEBUG = True
 # development
 if config('MODE') == "dev":
     DATABASES = {
@@ -167,8 +168,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Configure Django App for Heroku
-django_heroku.settings(locals())
+
 
 db_from_env = dj_database_url.config(conn_max_age = 500)
 DATABASES['default'].update(db_from_env)
@@ -180,3 +180,6 @@ cloudinary.config(
   api_key = "932744348394112", 
   api_secret = "NAu5gTJ9NhN_bAnpwwEPVg6XjXc" 
 )
+
+# Configure Django App for Heroku
+django_heroku.settings(locals())
