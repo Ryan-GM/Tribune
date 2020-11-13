@@ -22,7 +22,7 @@ import cloudinary.api
 
 MODE = config("MODE",default = "dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG',default = False, cast = bool)
+DEBUG = config('DEBUG',default = True, cast = bool)
 # development
 if config('MODE') == "dev":
     DATABASES = {
@@ -71,7 +71,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pictures',
+    # 'pictures',
 ]
 
 MIDDLEWARE = [
