@@ -55,3 +55,7 @@ class Article(models.Model):
 
 class Pictures(models.Model):
     image = CloudinaryField('image')
+
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField
