@@ -1,8 +1,10 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render,redirect
-from django.http import HttpResponse,Http404
+from django.http import HttpResponse,Http404,HttpResponseRedirect
 import datetime as dt 
 from . models import Article
+from .forms import NewsLetterForm
+from .email import send_welcome_email
 # Create your views here.
 def welcome(request):
     return HttpResponse(request,'welcome.html')
@@ -47,3 +49,12 @@ def article(request,article_id):
     except ObjectDoesNotExist:
         raise Http404()
     return render(request,"all-news/article.html", {"article":article})
+
+def news_today(request):
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            print('valid')
+    else:
+        form = NewsLetterForm()
+    return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
