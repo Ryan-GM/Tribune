@@ -58,6 +58,7 @@ def news_today(request):
             email = form.cleaned_data['email']
             recipient = NewsLetterRecipients(name = name,email = email)
             recipient.save()
+            send_welcome_email(name,email)
             HttpResponseRedirect('news_today')
         else:
             form = NewsLetterForm()
